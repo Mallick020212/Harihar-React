@@ -29,10 +29,20 @@
 // const root = ReactDOM.createRoot(document.getElementById("root"));
 // root.render(heading);
 
-const parent=React.createElement("div",{id:"parent"},[React.createElement("div",{id:"child "},
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-    [React.createElement("h1",{id:"heading"},"hello h1 tag"),React.createElement("h2",{id:"heading"},"hello Harihar")]),
-    React.createElement("div",{id:"child1"},
-        [React.createElement("h1",{id:"heading"},"hello h1 tag"),React.createElement("h2",{id:"heading"},"hello h2 tag")])]);
-const root=ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);     
+const parent = React.createElement("div", { id: "parent" }, [
+  React.createElement("div", { id: "child", key: "child" }, [
+    React.createElement("h1", { key: "h1a",id:"heading" }, "hello h1 tag"),
+    React.createElement("h2", { key: "h2a",id:"heading" }, "hello Harihar")
+  ]),
+  React.createElement("div", { id: "child1", key: "child1" }, [
+    React.createElement("h1", { key: "h1b",id:"heading" }, "hello h1 tag"),
+    React.createElement("h2", { key: "h2b",id:"heading" }, "hello h2 tag")
+  ])
+]);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(parent);
+ 
