@@ -1,0 +1,198 @@
+/* Base styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.logo {
+    width: 140px;
+    height: 100px;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.header {
+    position: sticky;            /* Makes header stick */
+    top: 0;                      /* Stick to the top */
+    z-index: 1000;               /* Ensure it appears above other content */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Correct box-shadow syntax */
+}
+
+.nav-items > ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-items > ul > li {
+    list-style: none;
+    margin-right: 30px;
+    font-size: 25px;
+    color:white;
+    cursor: pointer;
+    font-family: "bold";
+}
+
+.search-container {
+    display: flex;
+    justify-content: right;
+}
+
+.search-input {
+    width: 300px;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid #ced4da;
+    padding-left: 20px;
+    font-size: 16px;
+    outline: none;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.search-input:focus {
+    border-color: #495057;
+}
+
+.search-button {
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+.resturant-heading {
+    font-size: 30px;
+    color: #343a40;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+.restaurant-cards-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centers cards on small screens */
+}
+
+.restaurant-card {
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.restaurant-card img {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.restaurant-card h3 {
+    font-size: 24px;
+    color: #343a40;
+    margin: 10px 0;
+}
+
+.restaurant-card p {
+    font-size: 16px;
+    color: #6c757d;
+    text-align: center;
+}
+
+.restaurant-card:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+
+/* ------------------------------
+   ✅ Responsive Design
+------------------------------ */
+
+/* Tablets */
+@media screen and (max-width: 1024px) {
+    .nav-items > ul > li {
+        font-size: 20px;
+        margin-right: 20px;
+    }
+
+    .search-input {
+        width: 200px;
+    }
+
+    .search-button {
+        width: 80px;
+    }
+
+    .logo {
+        width: 100px;
+        height: 80px;
+    }
+}
+
+/* Mobile devices */
+@media screen and (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .nav-items > ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-items > ul > li {
+        margin: 10px 0;
+        font-size: 18px;
+    }
+
+    .search-container {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .search-input, .search-button {
+        width: 90%;
+        margin: 10px 0;
+    }
+
+    .logo {
+        margin-left: 0;
+    }
+
+    .restaurant-card {
+        width: 90%;
+    }
+}
