@@ -6,7 +6,7 @@ import FooterComponent from "./components/FooterComponent";
 import BodyComponent from "./components/BodyComponent";
     
 
-//applyouComponet is the main componet of the app
+
 const ApplayouComponent=()=>{
      return (
         <div className="app">
