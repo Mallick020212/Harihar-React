@@ -2,6 +2,7 @@ import  resObject  from "../utils/mockData";
 import ResturantcardComponet from "./ResturantcardComponent";
 import { useState,useEffect } from "react";
 import ShimmerComponent from "./ShimmerComponent";
+import { Link } from "react-router-dom";  
 //Body Componet
 const BodyComponent=()=>{
     const [resturantList, setRestaurantList] = useState([]);
@@ -49,7 +50,7 @@ const BodyComponent=()=>{
                 <div className="restaurant-cards-list">
                     {
                         filterList.map((restaurant) => {
-                            return <ResturantcardComponet key={restaurant.info.id} resObject={restaurant}/>
+                            return <Link key={restaurant.info.id} to={"/restaurant/"+restaurant.info.id}><ResturantcardComponet  resObject={restaurant}/></Link>
                         })
                     }
                 </div>
