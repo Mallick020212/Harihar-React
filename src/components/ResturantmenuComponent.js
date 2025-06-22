@@ -8,6 +8,7 @@ const ResturantmenuComponent = () => {
     const [itemList, setItemList] = useState([]);
     const [filterItemList, setFilterItemList] = useState([]);
     const [searchText, setSearchText] = useState("");
+    const [itemOffers, setitemOffers] = useState([]);
 
     const { id } = useParams();
 
@@ -23,10 +24,15 @@ const ResturantmenuComponent = () => {
         const itemCards =
             data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
                 ?.card?.card?.itemCards || [];
+        const itemOffer=(data?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.offers);
+       
 
         setResturantData(restaurantInfo);
         setItemList(itemCards);
         setFilterItemList(itemCards);
+        setitemOffers(itemOffer);
+        console.log(itemOffer);
+
     };
 
     const handleSearch = () => {
@@ -58,23 +64,24 @@ const ResturantmenuComponent = () => {
                 </div>
             </div>
 
-            <div className="resturant-deals_container">
+           <div className="resturant-deals_container">
                 <h1 className="deals-heading">Deals for you</h1>
                 <div className="resturant-deals">
-                    <div className="deal-card">
-                        <p>Special discount on your first order!</p>
-                    </div>
-                    <div className="deal-card">
-                        <p>Free delivery on orders above ₹500!</p>
-                    </div>
-                    <div className="deal-card">
-                        <p>20% off on selected items!</p>
-                    </div>
-                    <div className="deal-card">
-                        <p>Buy 1 Get 1 Free on desserts!</p>
-                    </div>
+                    {
+                        itemOffers.length > 0 ? (
+                            itemOffers.map((offer, index) => (
+                                <div className="deal-card" key={index}>
+                                    <p className="offer-header">{offer?.info?.header}</p>
+                                    <p className="offer-subtext">{offer?.info?.couponCode}</p>
+                                </div>
+                            ))
+                        ) : (
+                            <p>No offers available</p>
+                        )
+                    }
                 </div>
             </div>
+
 
             <div className="search-container1">
                 <input
